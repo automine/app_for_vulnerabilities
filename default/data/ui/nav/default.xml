@@ -1,7 +1,10 @@
-<nav search_view="search" color="#65A637">
-  <view name="search" default='true' />
-  <view name="data_models" />
-  <view name="reports" />
-  <view name="alerts" />
+<nav search_view="search" color="#CC511F">
+  <view name="overview" default='true' />
+  <view name="severity_profile" />
+  <view name="dest_profile" />
+  <view name="signature_profile" />
+  <view name="vulnerability_search" />
+  <view name="identifier_search" />
+  <view name="search" />
   <view name="dashboards" />
 </nav>

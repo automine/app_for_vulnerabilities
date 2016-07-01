@@ -1,0 +1,146 @@
+<form>
+  <label>Signature Profile</label>
+  <fieldset submitButton="true">
+    <input type="time" token="field1">
+      <label></label>
+      <default>
+        <earliest>-7d@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="text" token="signature">
+      <label>Signature</label>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Severity</title>
+      <single>
+        <search>
+          <query>| tstats prestats=false local=false summariesonly=true latest(Vulnerabilities.severity) AS severity from datamodel=Vulnerabilities where Vulnerabilities.signature="$signature$"</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="useColors">0</option>
+        <option name="useThousandSeparators">1</option>
+        <option name="linkView">search</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Identifiers</title>
+      <single>
+        <search>
+          <query>| tstats prestats=false local=false summariesonly=true `vuln_identifier_values` from datamodel=Vulnerabilities where Vulnerabilities.signature="$signature$" | `drop_dm_object_name(Vulnerabilities)`| `vuln_make_identifier_values` | fields identifiers | makemv delim="," identifiers</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="useColors">0</option>
+        <option name="useThousandSeparators">1</option>
+        <option name="linkView">search</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Number of times Detected</title>
+      <single>
+        <search>
+          <query>| tstats prestats=false local=false summariesonly=true count from datamodel=Vulnerabilities where Vulnerabilities.signature="$signature$"</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="useColors">0</option>
+        <option name="useThousandSeparators">1</option>
+        <option name="linkView">search</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Destinations with this Vulnerability</title>
+      <single>
+        <search>
+          <query>| tstats prestats=false local=false summariesonly=true dc(Vulnerabilities.dest) AS dests from datamodel=Vulnerabilities where Vulnerabilities.signature="$signature$"</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="useColors">0</option>
+        <option name="useThousandSeparators">1</option>
+        <option name="linkView">search</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Last Seen</title>
+      <single>
+        <search>
+          <query>| tstats prestats=false local=false summariesonly=true latest(_time) AS lastSeen from datamodel=Vulnerabilities where Vulnerabilities.signature="$signature$" | convert cTime(lastSeen)</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="colorBy">value</option>
+        <option name="colorMode">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="useColors">0</option>
+        <option name="useThousandSeparators">1</option>
+        <option name="linkView">search</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Dests with this Vulnerability</title>
+      <table>
+        <search>
+          <query>| tstats prestats=false local=false summariesonly=true latest(_time) AS lastSeen count AS detections from datamodel=Vulnerabilities where Vulnerabilities.signature="$signature$" by Vulnerabilities.dest  | `drop_dm_object_name(Vulnerabilities)` | sort - detections | convert cTime(lastSeen)</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+        </search>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="drilldown">row</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="count">20</option>
+        <drilldown>
+          <link>
+            <![CDATA[
+			dest_profile?earliest=$earliest$&latest=$latest$&&form.time_picker1.earliest=$earliest$&form.time_picker1.latest=$latest$&form.dest=$row.dest$
+          ]]>
+          </link>
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+</form>
