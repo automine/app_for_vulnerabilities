@@ -9,7 +9,7 @@ To do this, the app relies on the Splunk Common Information Model (CIM) for vuln
 This app requires data model acceleration, which will use additional disk space. If you are using the Splunk App for Enterprise Security, this is already enabled, and should have been factored into your retention policies. If not, you should review the documentation on data model acceleration, how it uses disk space, and how to plan for it. This documentation can be found here: <http://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Acceleratedatamodels#Data_model_summary_size_on_disk>
 
 ## A note on the Splunk Common Information Model
-As mentioned above, the app uses the CIM for web events. The CIM allows you to take events from a number of sources or products, and report on them in one cohesive manner, using a common set of names for fields and event types.
+As mentioned above, the app uses the CIM for vulnerability events. The CIM allows you to take events from a number of sources or products, and report on them in one cohesive manner, using a common set of names for fields and event types.
 
 ## Available Dashboards and Forms
 These are the dashboards and forms currently present in the app:
@@ -45,10 +45,10 @@ The Splunk Common Information Model Add-on can be downloaded from here: <https:/
 This app has been tested with versions 4.x of the CIM add-on.
 
 ### Data model Acceleration on the Vulnerabilities data model
-In order to make the app respond and load quickly, accelerated data models are used to provide summary data. For this data to be available, the `Vulnerabilities` data model must be accelerated. Information on how to enable acceleration for the Web data model can be found here: <http://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Managedatamodels#Enable_data_model_acceleration>
+In order to make the app respond and load quickly, accelerated data models are used to provide summary data. For this data to be available, the `Vulnerabilities` data model must be accelerated. Information on how to enable acceleration for the Vulnerabilities data model can be found here: <http://docs.splunk.com/Documentation/Splunk/latest/Knowledge/Managedatamodels#Enable_data_model_acceleration>
 
 ## Installation
-This app should be installed on a search head where the Web data model has been accelerated. More information on installing or upgrading Splunk apps can be found here: <http://docs.splunk.com/Documentation/Splunk/latest/Admin/Wheretogetmoreapps>
+This app should be installed on a search head where the Vulnerabilities data model has been accelerated. More information on installing or upgrading Splunk apps can be found here: <http://docs.splunk.com/Documentation/Splunk/latest/Admin/Wheretogetmoreapps>
 
 __Note__: This app will require a restart of Splunk.
 
@@ -78,6 +78,9 @@ The git repo for this app is located [here](https://github.com/automine/app_for_
 
 ## Changes
 
+### v1.1
+* corrected the README
+
 ### v1.0
 Initial release
 
@@ -85,7 +88,7 @@ Initial release
 
 ### Splunk Common Information Model
 * Splunk Common Information Model Add-on Docs: <http://docs.splunk.com/Documentation/CIM/latest/User/Overview>
-* Splunk Common Information Model Add-on Web data model: <http://http://docs.splunk.com/Documentation/CIM/latest/User/Web>
+* splunk common information model add-on vulnerabilities data model: <http://http://docs.splunk.com/documentation/cim/latest/user/Vulnerabilities>
 
 ### Downloads
 * Splunk Common Information Model Add-on Download: <https://apps.splunk.com/app/1621/>
