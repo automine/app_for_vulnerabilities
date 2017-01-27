@@ -78,6 +78,11 @@ The git repo for this app is located [here](https://github.com/automine/app_for_
 
 ## Changes
 
+### v1.2
+* Certification revisions
+* Removed local.meta
+* Removed linkView tag from SimpleXML files
+
 ### v1.1
 * corrected the README
 

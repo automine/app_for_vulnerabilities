@@ -31,7 +31,6 @@
         <option name="trendDisplayMode">absolute</option>
         <option name="useColors">1</option>
         <option name="useThousandSeparators">1</option>
-        <option name="linkView">search</option>
         <option name="rangeColors">["0x555","0x555"]</option>
         <option name="rangeValues">[0]</option>
         <option name="trendInterval">auto</option>
@@ -56,7 +55,6 @@
         <option name="trendDisplayMode">absolute</option>
         <option name="useColors">1</option>
         <option name="useThousandSeparators">1</option>
-        <option name="linkView">search</option>
         <option name="rangeColors">["0xd93f3c","0xd93f3c"]</option>
         <option name="rangeValues">[0]</option>
         <option name="trendInterval">auto</option>
@@ -81,7 +79,6 @@
         <option name="trendDisplayMode">absolute</option>
         <option name="useColors">1</option>
         <option name="useThousandSeparators">1</option>
-        <option name="linkView">search</option>
         <option name="rangeColors">["0xf58f39","0xf58f39"]</option>
         <option name="rangeValues">[0]</option>
         <option name="trendInterval">auto</option>
@@ -106,7 +103,6 @@
         <option name="trendDisplayMode">absolute</option>
         <option name="useColors">1</option>
         <option name="useThousandSeparators">1</option>
-        <option name="linkView">search</option>
         <option name="rangeColors">["0xf7bc38","0xf7bc38"]</option>
         <option name="rangeValues">[0]</option>
         <option name="trendInterval">auto</option>
@@ -131,7 +127,6 @@
         <option name="trendDisplayMode">absolute</option>
         <option name="useColors">1</option>
         <option name="useThousandSeparators">1</option>
-        <option name="linkView">search</option>
         <option name="rangeColors">["0x65a637","0x65a637"]</option>
         <option name="rangeValues">[0]</option>
         <option name="trendInterval">auto</option>

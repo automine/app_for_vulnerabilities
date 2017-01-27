@@ -45,7 +45,6 @@
         <option name="underLabel">Dests</option>
         <option name="useColors">1</option>
         <option name="useThousandSeparators">1</option>
-        <option name="linkView">search</option>
       </single>
     </panel>
     <panel>
@@ -70,7 +69,6 @@
         <option name="underLabel">Signatures</option>
         <option name="useColors">1</option>
         <option name="useThousandSeparators">1</option>
-        <option name="linkView">search</option>
       </single>
     </panel>
   </row>
