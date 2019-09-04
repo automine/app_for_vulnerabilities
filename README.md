@@ -1,5 +1,8 @@
 # App for Vulnerabilities
 
+## Deprecation Warning!!!
+__This app has been deprecated. There will be no new development or bug fixes. It has been replaced by the [Aplura Vulnerabilities App for Splunk](https://splunkbase.splunk.com/app/4230/).__
+
 ## Overview
 This app provides Splunk dashboards, forms, and reports which can be used to explore your vulnerability events, and make sense of what can often be a large volume of data.
 
@@ -78,6 +81,9 @@ The git repo for this app is located [here](https://github.com/automine/app_for_
 
 ## Changes
 
+### v1.3
+* Added deprecation warning and link to replacement.
+
 ### v1.2
 * Certification revisions
 * Removed local.meta
@@ -104,4 +110,3 @@ This app was created by David Shpritz of Aplura, LLC. <http://www.aplura.com/con
 Thanks to other members of the Splunk Professional Services team, as well members of the #splunk IRC on efnet <http://wiki.splunk.com/Community:IRC>
 
 Icon made by Freepik from http://www.flaticon.com is licensed under CC BY 3.0.
-
